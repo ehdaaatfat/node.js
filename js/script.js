@@ -69,7 +69,6 @@ const createMyOwnElement = (parent, ele, text, classes) =>{
              td = document.createElement("td")
              tr.appendChild(td)
              td.textContent = task.age
-
              td = document.createElement("td")
              tr.appendChild(td)
              const activeBtn = document.createElement("button")
@@ -79,8 +78,25 @@ const createMyOwnElement = (parent, ele, text, classes) =>{
              activeBtn.addEventListener("click", function(e){
                  activeBtn.textContent = "inactive"
                     activeBtn.classList="btn btn-danger mx-3"
-            })
 
+                    if(!task.status){
+                        activeBtn.classList="btn btn-danger mx-3";
+                        activeBtn.textContent="Inactive"
+                        task.status=true;
+                        writeDataToStorage("tasks",allData)
+                    }
+                    else
+                   {
+                    activeBtn.classList="btn btn-success mx-3";
+                    activeBtn.textContent="Active";
+                    task.status=false;
+                    writeDataToStorage("tasks",allData)
+            
+                
+                   } 
+
+
+            })
              td = document.createElement("td")
              tr.appendChild(td)
              const showBtn = document.createElement("button")
@@ -98,7 +114,6 @@ const createMyOwnElement = (parent, ele, text, classes) =>{
              delBtn.textContent = "Delete"
              delBtn.classList="btn btn-danger mx-3"
              td.appendChild(delBtn)
-
         } )} */
 
 
@@ -122,15 +137,23 @@ const createMyOwnElement = (parent, ele, text, classes) =>{
 
                 activeBtn.addEventListener("click", function(e){
                  
-                   activeBtn.classList="btn btn-danger mx-3"
-                   activeBtn.textContent = "inactive"
+                    if(!task.status){
+                        activeBtn.classList="btn btn-danger mx-3";
+                        activeBtn.textContent="Inactive"
+                        task.status=true;
+                        writeDataToStorage("tasks",allData)
+                    }
+                    else
+                   {
+                    activeBtn.classList="btn btn-success mx-3";
+                    activeBtn.textContent="Active";
+                    task.status=false;
+                    writeDataToStorage("tasks",allData)
+            
+                
+                   } 
 
                 })
-
-
-              
-
-
 
 
 
@@ -153,4 +176,3 @@ const createMyOwnElement = (parent, ele, text, classes) =>{
             const allData = readFromStorage('tasks')    
             showAll(allData)
         }
-
