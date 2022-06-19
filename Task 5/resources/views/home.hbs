@@ -1,0 +1,46 @@
+{{>header}}
+{{>navbar}}
+
+<h3>{{name}}</h3>
+<section class="container my-5">
+    <h3 class="text-center text-primary">All Users</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>  Id</th>
+                <th>  Name</th>
+                <th>  Age</th>
+                <th>  Phone</th>
+                <th>  Status</th>
+                <th>  Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          {{#if isEmpty}}
+          <tr>
+            <td colspan="3" class="bg-danger text-white">No posts to show</td>
+          </tr>
+          {{/if}}
+          {{#each data}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.age}}</td>
+                <td>{{this.phone}}</td>
+                  
+                  <td >
+                    {{this.status}}
+                  </td> 
+                  
+
+                <td>
+                    <a href="/single/{{this._id}}" class="btn btn-primary">Show</a>
+                    <a href="/edit/{{this._id}}" class="btn btn-warning">Edit</a>
+                    <a href="/delete/{{this._id}}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+          {{/each}}
+        </tbody>
+    </table>
+</section>
+{{>footer}}

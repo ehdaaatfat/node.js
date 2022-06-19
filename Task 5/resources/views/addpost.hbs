@@ -1,0 +1,32 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-5">
+    <form method="post">
+        <div class="mb-3">
+            <input placeholder="name" name="name" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input placeholder="content" name="content" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input placeholder="age" name="age" type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input placeholder="phone" name="phone"  class="form-control">
+        </div>
+        <div class="mb-3">
+            <input placeholder="date" name="date" class="form-control" type="date">
+        </div>
+        <div class="mb-3">
+          <input type="radio" id="active" name="status" value="active">
+            <label for="active">active</label><br>
+          <input type="radio" id="inactive" name="status" value="inactive">
+            <label for="inactive">inactive</label><br>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Add</button>
+        </div>
+
+    </form>
+</section>
+{{>footer}}

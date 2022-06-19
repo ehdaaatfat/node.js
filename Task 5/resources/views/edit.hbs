@@ -1,0 +1,29 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-5">
+    <form method="post">
+        <div class="mb-3">
+            <input placeholder="name" name="name" class="form-control"  value="{{postData.name}}">
+        </div>
+        <div class="mb-3">
+            <input placeholder="content" name="content" class="form-control" value="{{postData.content}}">
+        </div>
+        <div class="mb-3">
+            <input placeholder="age" name="age" type="number" class="form-control" value="{{postData.age}}">
+        </div>
+        <div class="mb-3">
+            <input placeholder="phone" name="phone"  class="form-control" value="{{postData.phone}}">
+        </div>
+
+        <div class="mb-3">
+            <input placeholder="date" name="date" class="form-control" type="date" value="{{postData.data}}">
+        </div>
+        <div class="mb-3">
+            <input placeholder="status" name="status" class="form-control" value="{{postData.status}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Edit</button>
+        </div>
+    </form>
+</section>
+{{>footer}}
