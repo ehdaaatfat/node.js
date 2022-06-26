@@ -1,15 +1,7 @@
 const post = require("../controllers/post.controller")
+const {auth, adminAuth} = require("../middleware/auth.middleware")
 const router = require("express").Router()
+router.post("/add",auth, post.add)
+router.post("/myPosts",auth, post.myPosts)
 
-router.post("/addPost", post.addPost)
-
-router.get("/", post.getAllPost)
-
-router.post("/updatePost/:id", post.updatePost)
-
-router.get("/getSinglePost/:id", post.getSinglePost)
-
-
-router.delete("/deletePost/:id", post.deletePost)
-
-module.exports=router
+module.exports = router

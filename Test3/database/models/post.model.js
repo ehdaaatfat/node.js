@@ -1,16 +1,27 @@
 const mongoose = require("mongoose")
-
-const postSchema = new mongoose.Schema({
-    data:{
+const postSchema = mongoose.Schema({
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true
+    },
+    postType:{
         type:String,
-        required: true,
-      
-    }, 
-
+        required:true,
+        enum:["img", "txt"]
+    },
+    content:{
+        type:String,
+        trim:true,
+        required: function(){ return this.postType=="txt" }
+    },
+    file:{
+        type:String,
+        trim:true,
+        required: function(){ return this.postType=="img"}
+    }
 },
-{
-    timestamps:true
-})
+{timeStamps:true})
 
-const post = mongoose.model("Post",postSchema)
-module.exports=post
+const Post= mongoose.model("Post", postSchema)
+module.exports = Post
