@@ -1,0 +1,23 @@
+<div class="search-input">
+    <br/>
+    <input type="" class="form-control" placeholder="Search into title" (keydown)="filtrationProcess()" [(ngModel)]=searchKeyword> 
+
+    <br/>
+</div>
+<div class="container">
+    <div class="row gy-4">
+        <div class="col-4" *ngFor="let slider of filterdSliders">
+            <div class="card">
+                <img src="assets/images/e4.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3>{{slider.title}}</h3>
+                    <p>{{slider.body}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h1>Angular</h1>
